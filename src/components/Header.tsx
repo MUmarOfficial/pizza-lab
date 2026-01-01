@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useAppSelector } from "../store/hooks";
+import { selectPizzaCount, selectPizzaPrice } from "../store/cartSlice";
 
 const Header = () => {
   const [isFocused, setIsFocused] = useState(false);
+  const pizzasCount = useAppSelector(selectPizzaCount);
+  const pizzasPrice = useAppSelector(selectPizzaPrice);
   return (
     <div className="navbar bg-primary text-base-100 sticky top-0 z-40 gap-4">
       <Link to={"/"} className="btn btn-ghost text-xl">
@@ -19,11 +23,15 @@ const Header = () => {
           className="input text-neutral-100 input-bordered w-full md:w-auto"
         />
       </form>
-      <div className="flex-none">
-        <div className="font-semibold gap-1 flex">
-          <span className="hidden md:flex">Cart total: </span>
-          <span>€{0}</span>{" "}
-        </div>
+      <div className="flex justify-center items-center gap-1">
+        {
+          pizzasPrice ? (
+            <div className="font-semibold gap-1 flex">
+              <span className="hidden md:flex">Cart total: </span>
+              <span>€{pizzasPrice}</span>{" "}
+            </div>
+          ) : null
+        }
         <Link
           to="/cart"
           tabIndex={0}
@@ -45,7 +53,7 @@ const Header = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span className="badge badge-sm indicator-item">{0}</span>
+            <span className="badge badge-sm indicator-item">{pizzasCount}</span>
           </div>
         </Link>
       </div>

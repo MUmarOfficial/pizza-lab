@@ -1,9 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { RouterProvider } from "react-router";
+import router from "./router";
+import { Provider } from "react-redux";
+import { persistor, store } from "./store/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <div className="text-5xl text-center my-10">Pizza Lab App</div>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
 );
