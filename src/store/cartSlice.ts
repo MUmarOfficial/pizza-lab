@@ -3,7 +3,7 @@ import type { Pizza } from "../data/menu-items";
 import type { RootState } from "./store";
 import { formatPrice } from "../utils/price-utils";
 import { persistReducer } from "redux-persist";
-import  storage  from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage";
 
 export type CartItem = Pizza & {
   quantity: number;
@@ -53,12 +53,20 @@ export const cartSlice = createSlice({
     deleteItem: (state, action: PayloadAction<Pizza>) => {
       state.items = state.items.filter((item) => item.id !== action.payload.id);
     },
+
+    resetCart: (state) => {
+      state.items = [];
+    },
   },
 });
 
-export const { addItem, removeItem, deleteItem } = cartSlice.actions;
+export const { addItem, removeItem, deleteItem, resetCart } = cartSlice.actions;
 
 const cartReducer = cartSlice.reducer;
+
+export const selectCartItems = (state: RootState) => {
+  return state.cart.items;
+};
 
 export const selectItemQuantity = (item: Pizza) => {
   return (state: RootState) => {
@@ -74,7 +82,7 @@ export const selectPizzaCount = (state: RootState) => {
   return state.cart.items.reduce((acc, nextItem) => acc + nextItem.quantity, 0);
 };
 
-export const selectPizzaPrice = (state: RootState) => {
+export const selectPizzasPrice = (state: RootState) => {
   const total = state.cart.items.reduce(
     (acc, nextItem) => acc + nextItem.quantity * nextItem.price,
     0
@@ -82,7 +90,10 @@ export const selectPizzaPrice = (state: RootState) => {
   return formatPrice(total);
 };
 
-export default persistReducer({
-    key: 'cart',
-    storage
-}, cartReducer);
+export default persistReducer(
+  {
+    key: "cart",
+    storage,
+  },
+  cartReducer
+);

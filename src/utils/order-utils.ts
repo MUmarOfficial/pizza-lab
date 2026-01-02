@@ -1,5 +1,9 @@
-import { randAlphaNumeric } from "@ngneat/falso";
-
-export const createOrderId = () => {
-  return randAlphaNumeric({ length: 5 }).join("");
+export const createOrderId = (length = 5) => {
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
 };
