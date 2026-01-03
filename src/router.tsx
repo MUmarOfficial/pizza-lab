@@ -14,9 +14,9 @@ const router = createBrowserRouter(
             <Route path="/menu" element={<Menu />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route errorElement={<OrderNotFound/>} loader={orderLoader} path="/order/:orderId" element={<Order />} />
+            <Route errorElement={<OrderNotFound />} loader={orderLoader} path="/order/:orderId" element={<Order />} />
         </Route>
-    )
+    ), { basename: import.meta.env.BASE_URL }
 );
 
 export default router;
