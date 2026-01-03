@@ -16,7 +16,7 @@ const router = createBrowserRouter(
             <Route path="/checkout" element={<Checkout />} />
             <Route errorElement={<OrderNotFound />} loader={orderLoader} path="/order/:orderId" element={<Order />} />
         </Route>
-    ), { basename: import.meta.env.BASE_URL }
+    ), { basename: "/pizza-lab" }
 );
 
 export default router;
