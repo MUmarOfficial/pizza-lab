@@ -16,7 +16,7 @@ const Header = () => {
                     shadow-lg shadow-black/20 flex items-center justify-between gap-4">
       <Link
         to={"/"}
-        className="text-2xl font-bold tracking-tight bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent hover:to-white transition-all"
+        className="text-2xl font-bold tracking-tight bg-linear-to-br from-white to-white/60 bg-clip-text text-transparent hover:to-white transition-all"
       >
         Pizza Lab
       </Link>
