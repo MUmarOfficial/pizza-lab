@@ -26,7 +26,7 @@ const Cart = () => {
             <span>Total price</span>
             <span className="text-primary">€{totalPrice}</span>
           </div>
-          <Link to={"/checkout"} className="btn btn-primary w-44">
+          <Link to={"/checkout"} className="myBtn px-8 py-3 rounded-full">
             Checkout
           </Link>
         </>

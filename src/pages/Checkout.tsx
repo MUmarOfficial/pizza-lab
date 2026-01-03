@@ -19,7 +19,7 @@ const Checkout = () => {
       <h2 className="text-3xl text-center m-2">Checkout</h2>
       {
         cartItems.length ? (
-          <div className="grid grid-cols-1 my-4 p-4 md:grid-cols-2 gap-8 card bg-base-300 shadow-xl">
+          <div className="grid grid-cols-1 my-4 p-4 md:grid-cols-2 gap-8 card  shadow-xl">
             <section>
               <h2 className="text-2xl w-full text-center mb-4 card-title block">
                 Order Summary

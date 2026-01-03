@@ -11,7 +11,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
   const quantity = item.quantity;
   const dispatch = useAppDispatch();
   return (
-    <div className="card px-4 card-side bg-base-300 shadow-xl">
+    <div className="card px-4 card-side shadow-xl myBtn ">
       <figure className="w-32 min-w-32 mask mask-squircle">
         <img src={`/images/pizzas/${item.image}`} alt="Movie" />
       </figure>
@@ -23,7 +23,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
           {
             quantity === 0 && !readonly ? (
               <button
-                className="btn btn-primary"
+                className="myBtn px-8 py-3 rounded-full "
                 onClick={() => {
                   dispatch(addItem(item));
                 }}
@@ -34,7 +34,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
               <div className="flex gap-4 items-center">
                 {!readonly && (
                   <button
-                    className="btn btn-sm md:btn-md btn-primary btn-circle"
+                      className="myBtn px-3 py-3 rounded-full"
                     onClick={() => {
                       dispatch(removeItem(item));
                     }}
@@ -57,7 +57,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
                 {!readonly && (
                   <>
                     <button
-                      className="btn btn-sm md:btn-md btn-primary btn-circle"
+                        className="myBtn px-3 py-3 rounded-full"
                       onClick={() => {
                         dispatch(addItem(item));
                       }}
@@ -76,7 +76,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
                       </svg>
                     </button>
                     <button
-                      className="btn btn-sm md:btn-md btn-primary ml-4"
+                        className="myBtn px-8 py-3 rounded-full"
                       onClick={() => {
                         dispatch(deleteItem(item));
                       }}
@@ -96,7 +96,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
                         />
                       </svg>
 
-                      <span className="hidden md:block">Delete</span>
+                      <span className="hidden md:block ">Delete</span>
                     </button>{" "}
                   </>
                 )}

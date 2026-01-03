@@ -13,7 +13,6 @@ const router = createBrowserRouter(
             <Route index={true} element={<Home />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route errorElement={<OrderNotFound/>} loader={orderLoader} path="/order/:orderId" element={<Order />} />
         </Route>

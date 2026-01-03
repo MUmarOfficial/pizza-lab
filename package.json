@@ -13,6 +13,7 @@
     "@ngneat/falso": "^8.0.2",
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "framer-motion": "^12.23.26",
     "payment": "^2.4.7",
     "react": "^19.2.0",
     "react-credit-cards-2": "^1.0.3",

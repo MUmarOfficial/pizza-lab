@@ -16,6 +16,14 @@ type CardState = {
   focus: undefined | Focused;
 };
 
+const inputStyle = `
+  w-full max-w-xs px-4 py-3 rounded-xl outline-none
+  bg-zinc-800/50 border border-white/10 backdrop-blur-sm
+  text-neutral-200 placeholder:text-zinc-600
+  transition-all duration-300
+  focus:bg-zinc-900 focus:border-cyan-500/50 focus:shadow-[0_0_15px_rgba(34,211,238,0.2)]
+`;
+
 type CreditCardProps = {
   submitHandler: (state: Omit<CardState, 'focus'>) => void;
 };
@@ -94,57 +102,60 @@ const CreditCard: FC<CreditCardProps> = ({ submitHandler }) => {
         focused={state.focus}
       />
       <div className="form-inputs w-full px-8 flex flex-col gap-4">
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col gap-2">
           <input
             type="text"
             name="number"
             placeholder="Card Number"
             pattern="^(\d\s?){16}(?=\D*$)|(\d\s?){19}(?=\D*$)$"
             required
-            className="input input-bordered w-full max-w-xs"
+            className={inputStyle}
             onChange={handleInputChange}
             onFocus={handleInputFocus}
           />
-          <small>Eg: XXXX XXXX XXXX XXXX(XXX)</small>
+          <small className="text-xs text-zinc-500 ml-2">Eg: XXXX XXXX XXXX XXXX</small>
         </div>
         <div>
           <input
             type="text"
             name="name"
-            className="input input-bordered w-full max-w-xs"
-            placeholder="Name"
+            className={inputStyle}
+            placeholder="Cardholder Name"
             required
             onChange={handleInputChange}
             onFocus={handleInputFocus}
           />
         </div>
-        <div>
-          <input
-            type="tel"
-            name="expiry"
-            className="input input-bordered w-full max-w-xs"
-            placeholder="Valid Thru (MM/YY)"
-            pattern="^(0[1-9]|1[0-2])\/\d{2}$"
-            required
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-          />
-        </div>
-        <div>
-          <input
-            type="tel"
-            name="cvc"
-            className="input input-bordered w-full max-w-xs"
-            placeholder="CVC"
-            pattern="\d{3,4}"
-            required
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-          />
+        <div className="flex gap-4">
+          <div className="flex-1">
+            <input
+              type="tel"
+              name="expiry"
+              className={`${inputStyle} w-full`} // Ensure full width within flex
+              placeholder="MM/YY"
+              pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+              required
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+            />
+          </div>
+
+          <div className="flex-1">
+            <input
+              type="tel"
+              name="cvc"
+              className={`${inputStyle} w-full`} // Ensure full width within flex
+              placeholder="CVC"
+              pattern="\d{3,4}"
+              required
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+            />
+          </div>
         </div>
       </div>
-      <div className="form-actions w-44">
-        <button type="submit" className="btn btn-primary btn-block">
+      <div className="form-actions w-44 flex justify-center items-center">
+        <button type="submit" className="myBtn px-12 py-3 rounded-full mx-auto">
           PAY
         </button>
       </div>{" "}
