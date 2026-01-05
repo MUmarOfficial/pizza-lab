@@ -8,6 +8,7 @@ const Hero = () => {
           src="images/hero.webp"
           alt="hero-img"
           className="max-w-60 md:max-w-sm mask mask-squircle shadow-2xl"
+          data-testid="hero-img"
         />
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Feeling hungry?</h1>
