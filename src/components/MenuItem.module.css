@@ -1,0 +1,56 @@
+@reference "../index.css";
+
+.card {
+    @apply card bg-zinc-900/60 shadow-xl border border-white/5
+           flex flex-col md:flex-row overflow-hidden
+           transition-transform duration-300 hover:scale-[1.01];
+}
+
+.imageContainer {
+    @apply w-full h-48 md:w-48 md:h-auto md:min-w-[12rem] relative overflow-hidden;
+}
+
+.image {
+    @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.card:hover .image {
+    @apply scale-110;
+}
+
+.body {
+    @apply card-body p-4 md:p-6 flex-1 gap-2;
+}
+
+.title {
+    @apply card-title text-lg md:text-xl text-white mb-1;
+}
+
+.ingredients {
+    @apply text-xs md:text-sm text-zinc-400 font-light leading-relaxed;
+}
+
+.actionsContainer {
+    @apply card-actions justify-between items-center mt-auto pt-3;
+}
+
+.price {
+    @apply text-lg md:text-xl font-bold text-primary;
+}
+
+.quantityControls {
+    @apply flex items-center gap-3 bg-black/20 rounded-lg p-1;
+}
+
+.qtyBtn {
+    @apply btn btn-xs md:btn-sm btn-circle btn-ghost text-white hover:bg-white/10;
+}
+
+.qtyText {
+    @apply text-sm md:text-base font-mono font-bold w-4 text-center;
+}
+
+.deleteBtn {
+    /* Now 'myBtn' is a valid utility and can be applied */
+    @apply myBtn bg-red-500/10 border-red-500/20 text-red-400 hover:bg-red-500/20 hover:border-red-500/50 hover:shadow-red-500/20;
+}

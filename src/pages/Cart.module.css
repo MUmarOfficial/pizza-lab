@@ -1,0 +1,25 @@
+@reference "../index.css";
+
+.container {
+    @apply my-6 flex flex-col items-center justify-center gap-6 max-w-4xl mx-auto px-4;
+}
+
+.list {
+    @apply my-4 w-full flex flex-col gap-4;
+}
+
+.summary {
+    @apply flex items-center justify-between w-full p-4 bg-zinc-900/50 rounded-xl border border-white/5;
+}
+
+.totalLabel {
+    @apply text-lg md:text-2xl font-semibold text-zinc-300;
+}
+
+.totalPrice {
+    @apply text-xl md:text-3xl font-bold text-primary;
+}
+
+.emptyMsg {
+    @apply text-xl md:text-2xl text-zinc-500 text-center py-12;
+}

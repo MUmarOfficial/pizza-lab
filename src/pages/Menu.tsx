@@ -6,16 +6,17 @@ const QuantifiedMenuItem = withQuantity(MenuItem);
 
 const Menu = () => {
   return (
-    <>
-      <h2 className="text-3xl text-center my-4">
-        Pick what you crave for today
+    <div className="max-w-4xl mx-auto px-4 pb-12">
+      <h2 className="pageTitle">
+        Pick what you crave
       </h2>
-      <ul className="flex w-full flex-col gap-4">
+      {/* Grid: 1 col on mobile, 1 col on tablet (wide cards), possibly 2 on huge screens if desired, but 1 col stacks nicely with the new card design */}
+      <ul className="grid grid-cols-1 gap-6">
         {MENU_ITEMS.map((item) => {
           return <QuantifiedMenuItem key={item.id} item={item} />;
         })}
       </ul>
-    </>
+    </div>
   );
 };
 

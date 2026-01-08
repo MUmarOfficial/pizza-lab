@@ -16,7 +16,7 @@ const Header = () => {
                     shadow-lg shadow-black/20 flex items-center justify-between gap-4">
       <Link
         to={"/"}
-        className="text-2xl font-bold tracking-tight bg-linear-to-br from-white to-white/60 bg-clip-text text-transparent hover:to-white transition-all"
+        className="sm:text-2xl text-md font-bold tracking-tight bg-linear-to-br from-white to-white/60 bg-clip-text text-transparent hover:to-white transition-all"
       >
         Pizza Lab
       </Link>
@@ -51,7 +51,7 @@ const Header = () => {
             className={`
               bg-zinc-800/50 border border-white/5 rounded-full py-2 pl-10 pr-4 text-sm text-neutral-200 outline-none 
               transition-all duration-300 ease-out placeholder:text-zinc-600
-              ${isFocused ? "w-64 border-cyan-500/50 bg-zinc-900 shadow-[0_0_15px_rgba(34,211,238,0.2)]" : "w-40 hover:bg-zinc-800 hover:border-white/10"}
+              ${isFocused ? "sm:w-64 w-32 border-cyan-500/50 bg-zinc-900 shadow-[0_0_15px_rgba(34,211,238,0.2)]" : "sm:w-40 w-24 hover:bg-zinc-800 hover:border-white/10"}
             `}
           />
         </form>
@@ -61,7 +61,7 @@ const Header = () => {
                      bg-zinc-900/40 border border-white/10 transition-all duration-300
                      hover:bg-zinc-800 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
         >
-          {pizzasPrice > 0 && (
+          {pizzasPrice > 0 && globalThis.innerWidth > 648 && (
             <span className="font-semibold text-sm text-zinc-300 group-hover:text-white transition-colors">
               €{pizzasPrice}
             </span>
